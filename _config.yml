@@ -1,22 +1,20 @@
-title: Your awesome title
-author: GitHub User
-email: your-email@domain.com
+title: The Penguin Coders
+author: Mohit Singh
+email: mohit@penguincoders.net
 description: > # this means to ignore newlines until "twitter_username:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Exploring web development, AWS technologies, or taking a deep dive into any tech that captivates my interest.
 
 # social links
-twitter_username: jekyllrb
-github_username:  jekyll
-rss: rss
+twitter_username: msindev
+github_username:  msindev
+#rss: rss
 # dribbble_username: jekyll
 # facebook_username: jekyll
 # flickr_username: jekyll
 # instagram_username: jekyll
-# linkedin_username: jekyll
+linkedin_username: msindev
 # pinterest_username: jekyll
-# youtube_username: jekyll
+#youtube_username: PenguinCodersNetOfficial
 # googleplus_username: +jekyll
 
 # Mastodon instances
@@ -27,7 +25,7 @@ rss: rss
 #   instance: example.com
 
 
-show_excerpts: false # set to true to show excerpts on the homepage
+show_excerpts: true # set to true to show excerpts on the homepage
 
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
