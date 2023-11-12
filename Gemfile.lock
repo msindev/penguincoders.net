@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    minima (2.5.1)
+    minima (3.0.0.dev)
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
@@ -75,7 +75,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  bundler (>= 1.15)
+  bundler
   jekyll (= 4.2.2)
   minima!
   webrick (~> 1.8)
