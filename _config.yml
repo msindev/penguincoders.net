@@ -42,13 +42,14 @@ minima:
   #   - { platform: telegram,       user_url: "https://t.me/jekyll" }
     - { platform: twitter,        user_url: "https://twitter.com/msindev" }
     - { platform: x,              user_url: "https://x.com/msindev" }
-    - { platform: youtube,        user_url: "https://www.youtube.com/PenguinCodersNetOfficial" }
+    - { platform: youtube,        user_url: "https://www.youtube.com/@PenguinCoders" }
 
 # If you want to link only specific pages in your header, uncomment this and add the path to the pages in
 # order as they should show up.
 #
-# header_pages:
-#   - about.md
+header_pages:
+  - about.md
+  - blog.md
 
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
