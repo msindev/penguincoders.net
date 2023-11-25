@@ -49,14 +49,20 @@ minima:
 # If you want to link only specific pages in your header, uncomment this and add the path to the pages in
 # order as they should show up.
 #
-header_pages:
-  - about.md
-  - blog.md
+header_items:
+  - title: Home
+    url: /
+
+  - title: Blog
+    url: /blog/
+
+  - title: About
+    path: about.md
 
 # Set to `true` to show excerpts on the homepage.
 show_excerpts: true
 
-permalink: /:categories/:title
+permalink: /:categories/:title/
 
 # Pagination settings
 paginate: 10
