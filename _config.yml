@@ -50,9 +50,6 @@ minima:
 # order as they should show up.
 #
 header_items:
-  - title: Home
-    url: /
-
   - title: Blog
     url: /blog/
 
