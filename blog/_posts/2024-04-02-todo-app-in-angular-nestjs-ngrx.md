@@ -5,19 +5,19 @@ title: "Creating a ToDo App with Angular, NestJS, and NgRx in a Nx Monorepo"
 
 In this post, we will be creating a fully functional ToDo application in a Nx monorepo, using Angular for Frontend and NestJs for Backend. The ToDo app will also provide Angular's state management using NgRx. Our frontend app will be using Tailwind to style our components.
 
-![ToDo App](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/todo.png)
+![ToDo App](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/todo.png)
 
 Let's proceed to setting up our project.
 
 ### Step 1: Set Up Nx MonoRepo with Angular and NestJS
 
-- Create a new Nx workspace using latest Nx version `npx create-nx-workspace@latest` and follow the on-screen instructions by choosing Angular project. Your end result should look something like this ![Nx MonoRepo Generation Terminal Window](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/nx-monorepo-generation-screen.png)
+- Create a new Nx workspace using latest Nx version `npx create-nx-workspace@latest` and follow the on-screen instructions by choosing Angular project. Your end result should look something like this ![Nx MonoRepo Generation Terminal Window](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/nx-monorepo-generation-screen.png)
 
 - Now, add NestJs to your monorepo in your monorepo's directory using `nx add @nx/nest`
 
 - Create a new NestJs app which will keep our backend APIs in the monorepo using `nx g @nx/nest:app apps/api --frontendProject todo` which will generate 2 folders **api** and **api-e2e**. Our APIs will be present in the _apps/api_ folder. It will also add a `proxy.conf.json` in the _apps/todo_ folder.
 
-- After the frontend and api apps have been installed, the folder structure should look something like below ![Application Folder Structure](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/nx-api-frontend-folder-structure.png)
+- After the frontend and api apps have been installed, the folder structure should look something like below ![Application Folder Structure](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/nx-api-frontend-folder-structure.png)
 
 ---
 
@@ -58,7 +58,7 @@ bootstrap();
 ```
 
 <br/>
-- You should now have OpenAPI empty documentation ready. To view the Swagger docs in your browser, start the API server using `nx serve api` and browse to <http://localhost:3000/api> and you should see the below image ![Empty Swagger API Documentation](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/empty-swagger-nestjs.png)
+- You should now have OpenAPI empty documentation ready. To view the Swagger docs in your browser, start the API server using `nx serve api` and browse to <http://localhost:3000/api> and you should see the below image ![Empty Swagger API Documentation](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/empty-swagger-nestjs.png)
 
 - Let's write the API services and controllers. Before that, we will add a new library which will hold our models and interfaces for our ToDo object. Generate a new library in Nx workspace using the command `nx g @nx/js:library --name=types --bundler=none --directory=libs/types --projectNameAndRootFormat=as-provided` or use the Nx Console to generate a `@nx/js` library.
 
@@ -185,7 +185,7 @@ export class AppController {
 
 <br/>
 
-- Run `nx serve api` and browse to <http://localhost:3000/api>, and you should have all the APIs ready. Go and Try it yourself using cURL or Postman. The OpenAPI Schema should look like ![Swagger API Documentation](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/swagger-with-apis-nestjs.png)
+- Run `nx serve api` and browse to <http://localhost:3000/api>, and you should have all the APIs ready. Go and Try it yourself using cURL or Postman. The OpenAPI Schema should look like ![Swagger API Documentation](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/swagger-with-apis-nestjs.png)
 
 ---
 
@@ -201,7 +201,7 @@ You might ask, why we cannot write our own HttpService in Angular. Sure, we can!
 
   > Make sure your NestJS server is up and running, and then execute this command. It picks up the OpenApi Spec from **http://localhost:3000/api-json**.
 
-- You should have the following openapi-generated library as shown in below picture. ![OpenAPI Generated Client Library](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/openapi-generated-typescript.png)
+- You should have the following openapi-generated library as shown in below picture. ![OpenAPI Generated Client Library](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/openapi-generated-typescript.png)
 
 - One final step, update the `libs/openapi-generated/src/index.ts` file to include our APIs.
 
@@ -221,7 +221,7 @@ We have completed coding our backend, and will move now to code our UI in Angula
 
 - We will be using Angular Material and Tailwind for our frontend app.
 
-- Install Angular Material in your project using the command `npx nx g @angular/material:ng-add --project=todo` and use the below image as reference to choose your options. ![Angular Material Options](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/angular-material-setup.png)
+- Install Angular Material in your project using the command `npx nx g @angular/material:ng-add --project=todo` and use the below image as reference to choose your options. ![Angular Material Options](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/angular-material-setup.png)
 
 <br/>
 
@@ -474,7 +474,7 @@ We will have a look at the UI and see that we have 2 components to build.
 - One is a list component which has the input bar and the todos, which will be reused in the 3 tabs(All, Active, Completed).
 - The top one is the app.component which has the title and 3 tabs.
 
-![ToDo App Components](/assets/images/2024-03-12-todo-app-in-angular-nestjs-ngrx/todo-component-structure.png)
+![ToDo App Components](/assets/images/2024-04-02-todo-app-in-angular-nestjs-ngrx/todo-component-structure.png)
 
 #### todo component
 
