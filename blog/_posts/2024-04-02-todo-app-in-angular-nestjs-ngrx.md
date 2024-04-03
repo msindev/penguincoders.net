@@ -639,8 +639,8 @@ export class AppComponent {
 - We create 3 observables to store the tasks -
 
   - **allTasks$** - Gets all tasks
-  - **activeTasks** - Filters tasks having done as false
-  - **completedTasks** - Filters tasks with done as true
+  - **activeTasks$** - Filters tasks having done as false
+  - **completedTasks$** - Filters tasks with done as true
 
 - These observables are subscribed in the template using async and relevant data is displayed in all the 3 tabs.
 
