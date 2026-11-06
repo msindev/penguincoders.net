@@ -166,15 +166,23 @@ permalink: /about/
         <li>
           <span class="research-list__logo"><img src="{{ '/assets/images/experience-logos/ijsce-transparent.png' | relative_url }}" alt=""></span>
           <div class="research-list__content">
-            <a href="https://doi.org/10.35940/ijsce.f3518.0710621" target="_blank" rel="noopener noreferrer">Comparative Analysis of Hybrid Mobile App Development Frameworks</a>
-            <span>International Journal of Soft Computing and Engineering · 2021 · <a href="https://openalex.org/works/W3201075881" target="_blank" rel="noopener noreferrer">22 citations</a></span>
+            <h3>Comparative Analysis of Hybrid Mobile App Development Frameworks</h3>
+            <p class="research-list__venue">International Journal of Soft Computing and Engineering <span aria-hidden="true">·</span> 2021</p>
+            <div class="research-list__details">
+              <a class="research-list__doi" href="https://doi.org/10.35940/ijsce.f3518.0710621" target="_blank" rel="noopener noreferrer">DOI <span>10.35940/ijsce.f3518.0710621</span> <span aria-hidden="true">↗</span></a>
+              <a class="research-list__citations" href="https://openalex.org/works/W3201075881" target="_blank" rel="noopener noreferrer">22 citations <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </li>
         <li>
           <span class="research-list__logo research-list__logo--ieee"><img src="{{ '/assets/images/experience-logos/ieee.svg' | relative_url }}" alt=""></span>
           <div class="research-list__content">
-            <a href="https://doi.org/10.1109/tencon50793.2020.9293757" target="_blank" rel="noopener noreferrer">Towards Bone Aware Image Enhancement in Musculoskeletal Ultrasound Imaging</a>
-            <span>2020 IEEE Region 10 Conference (TENCON) · 2020 · <a href="https://openalex.org/works/W3116018152" target="_blank" rel="noopener noreferrer">3 citations</a></span>
+            <h3>Towards Bone Aware Image Enhancement in Musculoskeletal Ultrasound Imaging</h3>
+            <p class="research-list__venue">2020 IEEE Region 10 Conference (TENCON) <span aria-hidden="true">·</span> 2020</p>
+            <div class="research-list__details">
+              <a class="research-list__doi" href="https://doi.org/10.1109/tencon50793.2020.9293757" target="_blank" rel="noopener noreferrer">DOI <span>10.1109/tencon50793.2020.9293757</span> <span aria-hidden="true">↗</span></a>
+              <a class="research-list__citations" href="https://openalex.org/works/W3116018152" target="_blank" rel="noopener noreferrer">3 citations <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </li>
       </ul>
