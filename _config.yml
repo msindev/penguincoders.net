@@ -1,4 +1,4 @@
-title: The Penguin Coders
+title: Penguin Coders
 author:
   name: Mohit Singh
   email: mohit@penguincoders.net
@@ -6,7 +6,7 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Exploring web development, AWS technologies, or taking a deep dive into any tech that captivates my interest.
+  Building software, exploring ideas, and sharing what I learn. Notes, experiments, and perspectives on software engineering and technology.
 
 # Build settings
 

@@ -1,58 +1,64 @@
 ---
 layout: base
 ---
+<div class="blog-page page-width">
+  <header class="page-intro blog-intro">
+    <p class="eyebrow">The Penguin Coders journal</p>
+    <h1>Articles &amp; notes</h1>
+    <p class="page-intro__lead">Practical ideas, things I've been building, and lessons from exploring software engineering.</p>
+  </header>
 
-<div class="home">
+  <section class="blog-discovery" aria-label="Find an article">
+    <label class="search-field" for="article-search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.8"/><path d="m13 13 4.2 4.2"/></svg>
+      <span class="visually-hidden">Search articles</span>
+      <input id="article-search" type="search" placeholder="Search articles…" autocomplete="off" aria-controls="article-list">
+      <kbd>/</kbd>
+    </label>
+    <label class="tag-filter">
+      <span class="visually-hidden">Filter by tag</span>
+      <select id="tag-filter" aria-label="Filter by tag">
+        <option value="">All tags</option>
+        {% assign seen_tags = "|" %}
+        {% for post in site.posts %}
+          {% for tag in post.tags %}
+            {% capture tag_token %}|{{ tag }}|{% endcapture %}
+            {% unless seen_tags contains tag_token %}
+              <option value="{{ tag | slugify }}">{{ tag }}</option>
+              {% assign seen_tags = seen_tags | append: tag | append: "|" %}
+            {% endunless %}
+          {% endfor %}
+        {% endfor %}
+      </select>
+    </label>
+    <button class="clear-filters" id="clear-filters" type="button">Clear filters</button>
+  </section>
 
-  {{ content }}
-
-
-  {% if site.paginate %}
-    {% assign posts = paginator.posts %}
-  {% else %}
-    {% assign posts = site.posts %}
+  {% assign available_topics = site.posts | map: "topic" | uniq | sort %}
+  {% if available_topics.size > 0 %}
+  <div class="topic-filters" role="group" aria-label="Filter by topic">
+    <button class="topic-filter is-active" type="button" data-topic-filter="" aria-pressed="true">Everything</button>
+    {% for topic in available_topics %}
+    <button class="topic-filter" type="button" data-topic-filter="{{ topic | slugify }}" aria-pressed="false">{{ topic }}</button>
+    {% endfor %}
+  </div>
   {% endif %}
 
-
-  {%- if posts.size > 0 -%}
-    {%- if page.list_title -%}
-      <h2 class="post-list-heading">{{ page.list_title }}</h2>
-    {%- endif -%}
-    <ul class="post-list">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
-      <li>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    {% if site.paginate %}
-      <div class="pager">
-        <ul class="pagination">
-        {%- if paginator.previous_page %}
-          <li><a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a></li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-          <li><div class="current-page">{{ paginator.page }}</div></li>
-        {%- if paginator.next_page %}
-          <li><a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a></li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-        </ul>
-      </div>
-    {%- endif %}
-
-  {%- endif -%}
-
+  <div class="blog-results-heading">
+    <p id="search-status" aria-live="polite">{{ site.posts.size }} {% if site.posts.size == 1 %}article{% else %}articles{% endif %}</p>
+    <span>Newest first</span>
+  </div>
+  <div class="article-grid blog-article-grid" id="article-list">
+    {% for post in site.posts %}
+      {% include article-card.html post=post %}
+    {% else %}
+      <p class="empty-state">No articles yet. Check back soon.</p>
+    {% endfor %}
+  </div>
+  <nav class="pagination-controls" id="pagination-controls" aria-label="Article pages" hidden>
+    <button type="button" data-page-previous aria-label="Previous page">← Newer</button>
+    <span data-page-indicator></span>
+    <button type="button" data-page-next aria-label="Next page">Older →</button>
+  </nav>
+  <p class="empty-state" id="no-results" hidden>No articles match those filters. Try another search or clear the filters.</p>
 </div>
