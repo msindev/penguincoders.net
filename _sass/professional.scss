@@ -1062,12 +1062,33 @@ a {
   }
 }
 
-.timeline__company {
-  > h3 {
-    margin: 0 0 0.75rem;
+.timeline__company-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.75rem;
+
+  h3 {
+    margin: 0;
     font-size: 1rem;
     font-weight: 650;
     line-height: 1.4;
+  }
+}
+
+.timeline__logo {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: transparent;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -1126,23 +1147,50 @@ a {
   list-style: none;
 
   li {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .research-list__content {
     display: flex;
+    min-width: 0;
     flex-direction: column;
     gap: 0.3rem;
+
+    > a {
+      width: fit-content;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      font-weight: 600;
+      line-height: 1.4;
+    }
   }
 
-  a {
-    width: fit-content;
-    font-family: var(--serif);
-    font-size: 1.08rem;
-    font-weight: 600;
-    line-height: 1.4;
-  }
-
-  span {
+  .research-list__content > span {
     color: var(--muted);
     font-size: 0.75rem;
   }
+}
+
+.research-list__logo {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  background: transparent;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.research-list__logo--ieee img {
+  padding: 6px;
 }
 
 .publication-metrics {

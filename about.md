@@ -30,7 +30,10 @@ permalink: /about/
       <ol class="timeline">
         <li class="timeline__item">
           <div class="timeline__company">
-            <h3>Salesforce</h3>
+            <div class="timeline__company-heading">
+              <span class="timeline__logo"><img src="{{ '/assets/images/experience-logos/salesforce.svg' | relative_url }}" alt=""></span>
+              <h3>Salesforce</h3>
+            </div>
             <ol class="timeline__roles">
               <li class="timeline__role">
                 <div class="timeline__role-heading">
@@ -45,7 +48,10 @@ permalink: /about/
         </li>
         <li class="timeline__item">
           <div class="timeline__company">
-            <h3>Informatica</h3>
+            <div class="timeline__company-heading">
+              <span class="timeline__logo"><img src="{{ '/assets/images/experience-logos/informatica.svg' | relative_url }}" alt=""></span>
+              <h3>Informatica</h3>
+            </div>
             <ol class="timeline__roles">
               <li class="timeline__role">
                 <div class="timeline__role-heading">
@@ -59,7 +65,10 @@ permalink: /about/
         </li>
         <li class="timeline__item">
           <div class="timeline__company">
-            <h3>Cisco</h3>
+            <div class="timeline__company-heading">
+              <span class="timeline__logo"><img src="{{ '/assets/images/experience-logos/cisco.svg' | relative_url }}" alt=""></span>
+              <h3>Cisco</h3>
+            </div>
             <ol class="timeline__roles">
               <li class="timeline__role">
                 <div class="timeline__role-heading">
@@ -87,7 +96,10 @@ permalink: /about/
         </li>
         <li class="timeline__item">
           <div class="timeline__company">
-            <h3>JPMorgan Chase &amp; Co.</h3>
+            <div class="timeline__company-heading">
+              <span class="timeline__logo"><img src="{{ '/assets/images/experience-logos/chase.svg' | relative_url }}" alt=""></span>
+              <h3>JPMorgan Chase &amp; Co.</h3>
+            </div>
             <ol class="timeline__roles">
               <li class="timeline__role">
                 <div class="timeline__role-heading">
@@ -101,7 +113,10 @@ permalink: /about/
         </li>
         <li class="timeline__item">
           <div class="timeline__company">
-            <h3>Indian Institute of Technology, Palakkad</h3>
+            <div class="timeline__company-heading">
+              <span class="timeline__logo"><img src="{{ '/assets/images/experience-logos/iit-palakkad-mark.png' | relative_url }}" alt=""></span>
+              <h3>Indian Institute of Technology, Palakkad</h3>
+            </div>
             <ol class="timeline__roles">
               <li class="timeline__role">
                 <div class="timeline__role-heading">
@@ -149,12 +164,18 @@ permalink: /about/
       </div>
       <ul class="research-list">
         <li>
-          <a href="https://doi.org/10.35940/ijsce.f3518.0710621" target="_blank" rel="noopener noreferrer">Comparative Analysis of Hybrid Mobile App Development Frameworks</a>
-          <span>International Journal of Soft Computing and Engineering · 2021 · <a href="https://openalex.org/works/W3201075881" target="_blank" rel="noopener noreferrer">22 citations</a></span>
+          <span class="research-list__logo"><img src="{{ '/assets/images/experience-logos/ijsce-transparent.png' | relative_url }}" alt=""></span>
+          <div class="research-list__content">
+            <a href="https://doi.org/10.35940/ijsce.f3518.0710621" target="_blank" rel="noopener noreferrer">Comparative Analysis of Hybrid Mobile App Development Frameworks</a>
+            <span>International Journal of Soft Computing and Engineering · 2021 · <a href="https://openalex.org/works/W3201075881" target="_blank" rel="noopener noreferrer">22 citations</a></span>
+          </div>
         </li>
         <li>
-          <a href="https://doi.org/10.1109/tencon50793.2020.9293757" target="_blank" rel="noopener noreferrer">Towards Bone Aware Image Enhancement in Musculoskeletal Ultrasound Imaging</a>
-          <span>2020 IEEE Region 10 Conference (TENCON) · 2020 · <a href="https://openalex.org/works/W3116018152" target="_blank" rel="noopener noreferrer">3 citations</a></span>
+          <span class="research-list__logo research-list__logo--ieee"><img src="{{ '/assets/images/experience-logos/ieee.svg' | relative_url }}" alt=""></span>
+          <div class="research-list__content">
+            <a href="https://doi.org/10.1109/tencon50793.2020.9293757" target="_blank" rel="noopener noreferrer">Towards Bone Aware Image Enhancement in Musculoskeletal Ultrasound Imaging</a>
+            <span>2020 IEEE Region 10 Conference (TENCON) · 2020 · <a href="https://openalex.org/works/W3116018152" target="_blank" rel="noopener noreferrer">3 citations</a></span>
+          </div>
         </li>
       </ul>
     </section>
