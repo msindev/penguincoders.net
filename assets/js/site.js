@@ -4,8 +4,7 @@
   function initializeTheme() {
     const buttons = document.querySelectorAll(".theme-toggle, .mobile-theme-toggle");
     const updateLabels = () => {
-      const current = document.documentElement.dataset.theme
-        || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      const current = document.documentElement.dataset.theme || "dark";
       buttons.forEach((button) => {
         const label = current === "dark" ? "Switch to light theme" : "Switch to dark theme";
         button.setAttribute("aria-label", label);
@@ -17,8 +16,7 @@
     updateLabels();
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        const current = document.documentElement.dataset.theme
-          || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const current = document.documentElement.dataset.theme || "dark";
         const next = current === "dark" ? "light" : "dark";
         document.documentElement.dataset.theme = next;
         try {
