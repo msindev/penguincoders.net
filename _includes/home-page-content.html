@@ -64,6 +64,26 @@
     </div>
   </section>
 
+  <section class="youtube-section page-width" aria-labelledby="youtube-heading">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">From the Penguin Coders channel</p>
+        <h2 id="youtube-heading">Recent videos</h2>
+        <p class="youtube-section__description">Tutorials and walkthroughs from the things I build and explore.</p>
+      </div>
+      <a class="text-link section-heading__link" href="https://www.youtube.com/@PenguinCoders" target="_blank" rel="noopener noreferrer">Visit the channel <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="youtube-section__player">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/videoseries?list=UURUtPWZ_Mo8CgdHbCSctodQ"
+        title="Recent Penguin Coders YouTube videos"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </section>
+
   {% assign available_topics = site.posts | map: "topic" | uniq %}
   {% if available_topics.size > 0 %}
   <section class="topics-section" aria-labelledby="topics-heading">

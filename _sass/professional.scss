@@ -410,6 +410,33 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.youtube-section {
+  padding-block: 3.2rem 4.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.youtube-section__description {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.youtube-section__player {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  background: #111;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
 .section-heading {
   display: flex;
   align-items: end;
@@ -2081,8 +2108,15 @@ a {
   }
 
   .featured-section,
-  .writing-section {
+  .writing-section,
+  .youtube-section {
     padding-block: 2.7rem 3.2rem;
+  }
+
+  .youtube-section .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .featured-article {
