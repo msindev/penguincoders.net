@@ -17,9 +17,11 @@ layout: base
     <h1 class="article-title p-name" itemprop="headline">{{ page.title | escape }}</h1>
     {% if page.description %}<p class="article-deck">{{ page.description | escape }}</p>{% endif %}
     <div class="article-author">
-      <img class="article-author__photo" src="{{ '/assets/images/mohit-singh.png' | relative_url }}" alt="">
+      <a class="article-author__profile-link" href="{{ '/about/' | relative_url }}" aria-label="About {{ site.author.name | default: 'Mohit Singh' }}">
+        <img class="article-author__photo" src="{{ '/assets/images/mohit-singh.png' | relative_url }}" alt="">
+      </a>
       <div>
-        <span class="p-author h-card" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ site.author.name | default: "Mohit Singh" }}</span></span>
+        <span class="p-author h-card" itemprop="author" itemscope itemtype="https://schema.org/Person"><a class="article-author__profile-link" href="{{ '/about/' | relative_url }}"><span itemprop="name">{{ site.author.name | default: "Mohit Singh" }}</span></a></span>
       </div>
       {% if page.modified_date %}
       <span class="updated-date">Updated <time class="dt-modified" datetime="{{ page.modified_date | date_to_xmlschema }}" itemprop="dateModified">{{ page.modified_date | date: "%b %-d, %Y" }}</time></span>
