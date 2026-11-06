@@ -1,0 +1,23 @@
+{% assign article = include.post %}
+{% capture searchable_text %}{{ article.title }} {{ article.description }} {{ article.tags | join: " " }} {{ article.content | strip_html | strip_newlines }}{% endcapture %}
+<article class="article-card" data-article-card data-topic="{{ article.topic | slugify }}" data-tags="{% for tag in article.tags %}{{ tag | slugify }} {% endfor %}" data-search="{{ searchable_text | downcase | escape }}">
+  <div class="article-card__body">
+    <div class="article-byline">
+      <span>{{ article.topic }}</span>
+      <span aria-hidden="true">·</span>
+      <time datetime="{{ article.date | date_to_xmlschema }}">{{ article.date | date: "%b %-d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      {% include reading-time.html content=article.content %}
+    </div>
+    <h3><a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a></h3>
+    <p class="article-card__excerpt">{{ article.description | default: article.excerpt | strip_html | strip_newlines | truncatewords: 30 }}</p>
+    {% if article.tags.size > 0 %}
+    <ul class="tag-list" aria-label="Article topics">
+      {% for tag in article.tags limit: 3 %}
+      {% capture tag_url %}/blog/?tag={{ tag | url_encode }}{% endcapture %}
+      <li><a href="{{ tag_url | relative_url }}" data-tag-link="{{ tag | slugify }}">{{ tag }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>

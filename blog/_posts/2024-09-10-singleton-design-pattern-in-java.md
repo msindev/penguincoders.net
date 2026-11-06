@@ -1,6 +1,9 @@
 ---
 layout: post
 title: "Singleton Design Pattern in Java"
+description: "A practical introduction to the Singleton pattern, its Java implementations, thread safety, and trade-offs."
+topic: Learning & Notes
+tags: [Java, Design Patterns, Software Engineering]
 ---
 
 Software design patterns are there to help solve common problems which occur in software design. There are different types of design patterns which we have, each solving a different use case.

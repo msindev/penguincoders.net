@@ -1,38 +1,98 @@
 ---
 layout: base
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.modified_date -%}
-        ~ 
-        {%- assign mdate = page.modified_date | date_to_xmlschema -%}
-        <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
-          {{ mdate | date: date_format }}
-        </time>
-      {%- endif -%}
-      {%- if page.author -%}
-        • {% for author in page.author %}
-          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
-            {%- if forloop.last == false %}, {% endif -%}
-        {% endfor %}
-      {%- endif -%}
-       &nbsp;~ {% include reading-time.html %}
-    </p>
+{% assign article_url = page.url | absolute_url | url_encode %}
+{% assign article_title = page.title | url_encode %}
+{% capture article_topic_url %}/blog/?topic={{ page.topic | slugify }}{% endcapture %}
+<div class="reading-progress" aria-hidden="true"><span></span></div>
+<article class="article-page h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="article-header page-width">
+    <a class="back-link" href="{{ '/blog/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a>
+    <div class="article-header__meta">
+      {% if page.topic %}<a class="article-category" href="{{ article_topic_url | relative_url }}">{{ page.topic }}</a>{% endif %}
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      {% include reading-time.html content=page.content %}
+    </div>
+    <h1 class="article-title p-name" itemprop="headline">{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="article-deck">{{ page.description | escape }}</p>{% endif %}
+    <div class="article-author">
+      <img class="article-author__photo" src="{{ '/assets/images/mohit-singh.png' | relative_url }}" alt="">
+      <div>
+        <span class="p-author h-card" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ site.author.name | default: "Mohit Singh" }}</span></span>
+      </div>
+      {% if page.modified_date %}
+      <span class="updated-date">Updated <time class="dt-modified" datetime="{{ page.modified_date | date_to_xmlschema }}" itemprop="dateModified">{{ page.modified_date | date: "%b %-d, %Y" }}</time></span>
+      {% endif %}
+    </div>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
+  <div class="article-layout">
+    <nav class="article-toc" id="article-toc" aria-label="Table of contents" hidden>
+      <p class="article-toc__title">On this page</p>
+      <ol></ol>
+    </nav>
+    <div class="article-reading-column">
+      <div class="article-body e-content" itemprop="articleBody">
+        {{ content }}
+      </div>
+
+      {% if page.tags.size > 0 %}
+      <div class="article-tags">
+        <span class="eyebrow">Filed under</span>
+        <ul class="tag-list">
+          {% for tag in page.tags %}
+          {% capture tag_url %}/blog/?tag={{ tag | url_encode }}{% endcapture %}
+          <li><a href="{{ tag_url | relative_url }}">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="article-share">
+        <span class="eyebrow">Pass it along</span>
+        <div>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ article_url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://twitter.com/intent/tweet?url={{ article_url }}&amp;text={{ article_title }}" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          <button type="button" class="copy-link-button" data-copy-link="{{ page.url | absolute_url }}">Copy link</button>
+        </div>
+      </div>
+
+      <nav class="article-neighbors" aria-label="More articles">
+        {% if page.previous %}
+        <a class="article-neighbor article-neighbor--previous" href="{{ page.previous.url | relative_url }}">
+          <span class="eyebrow">← Older article</span>
+          <span>{{ page.previous.title | escape }}</span>
+        </a>
+        {% else %}<span></span>{% endif %}
+        {% if page.next %}
+        <a class="article-neighbor article-neighbor--next" href="{{ page.next.url | relative_url }}">
+          <span class="eyebrow">Newer article →</span>
+          <span>{{ page.next.title | escape }}</span>
+        </a>
+        {% endif %}
+      </nav>
+    </div>
   </div>
 
-  {%- include giscus_comments.html -%}
-
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  {% assign related_count = 0 %}
+  {% for related_post in site.posts limit: 4 %}
+    {% unless related_post.url == page.url %}
+      {% if related_count == 0 %}
+      <section class="related-section page-width" aria-labelledby="related-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">Keep exploring</p><h2 id="related-heading">More from the notebook</h2></div>
+          <a class="text-link" href="{{ '/blog/' | relative_url }}">All articles <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="article-grid">
+      {% endif %}
+        {% include article-card.html post=related_post %}
+        {% assign related_count = related_count | plus: 1 %}
+    {% endunless %}
+  {% endfor %}
+  {% if related_count > 0 %}
+        </div>
+      </section>
+  {% endif %}
+  <a class="u-url" href="{{ page.url | absolute_url }}" hidden></a>
 </article>

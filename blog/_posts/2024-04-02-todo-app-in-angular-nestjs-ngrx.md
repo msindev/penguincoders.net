@@ -1,6 +1,10 @@
 ---
 layout: post
 title: "Creating a ToDo App with Angular, NestJS, and NgRx in a Nx Monorepo"
+description: "A hands-on walkthrough of building a full-stack ToDo app with Angular, NestJS, NgRx, and Nx."
+topic: Software Engineering
+tags: [Angular, NestJS, NgRx, Nx, Full-stack]
+featured: true
 ---
 
 In this post, we will be creating a fully functional ToDo application in a Nx monorepo, using Angular for Frontend and NestJs for Backend. The ToDo app will also provide Angular's state management using NgRx. Our frontend app will be using Tailwind to style our components.
