@@ -133,7 +133,16 @@ permalink: /about/
     </section>
 
     <section class="prose-section" aria-labelledby="research-heading">
-      <h2 id="research-heading">Research &amp; publications</h2>
+      <h2 class="research-heading" id="research-heading">
+        <span class="research-heading__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 4.75h9.5A2.5 2.5 0 0 1 17 7.25v12H7.5A2.5 2.5 0 0 0 5 21.75v-17Z"/>
+            <path d="M19 4.75H9.5A2.5 2.5 0 0 0 7 7.25v12h9.5a2.5 2.5 0 0 1 2.5 2.5v-17Z"/>
+            <path d="M9.5 9.5h2.75m-2.75 3h2.75m2.5-3h.5m-.5 3h.5"/>
+          </svg>
+        </span>
+        <span>Research &amp; publications</span>
+      </h2>
       <div class="publication-metrics" aria-label="Publication metrics">
         <p><strong>h-index</strong><span>2</span></p>
         <p class="publication-metrics__note">Across the two papers listed here, based on OpenAlex citation counts as of Nov 6, 2026.</p>
