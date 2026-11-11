@@ -1,0 +1,67 @@
+---
+layout: base
+title: The Data Systems Journal
+description: A practical engineering learning series about databases, storage, replication, distributed systems, transactions, and data processing.
+permalink: /series/data-systems-journal/
+---
+
+{% assign series_posts = site.posts | where: "series", "The Data Systems
+Journal" | sort: "series_order" %}
+<div class="series-page page-width">
+  <header class="series-hero">
+    <div class="series-hero__copy">
+      <p class="eyebrow">Penguin Coders · Engineering series</p>
+      <h1>The Data Systems Journal</h1>
+      <p class="series-hero__subtitle">
+        Learning to Build Reliable, Scalable and Maintainable Data Systems
+      </p>
+      <p class="series-hero__description">
+        Original engineering notes and experiments on databases, distributed
+        systems, and the architecture behind reliable software, inspired by
+        <cite>Designing Data-Intensive Applications (2nd Edition)</cite>
+      </p>
+    </div>
+    <img
+      class="series-hero__image"
+      src="{{ '/assets/images/data-systems-journal.svg' | relative_url }}"
+      alt="An illustration of connected databases and services"
+    />
+  </header>
+
+  <section class="series-articles" aria-labelledby="series-articles-heading">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">The journal</p>
+        <h2 id="series-articles-heading">
+          {% if series_posts.size > 0 %}Published articles{% else %}Latest from
+          Penguin Coders{% endif %}
+        </h2>
+      </div>
+    </div>
+    {% if series_posts.size > 0 %}
+    <div class="article-grid">
+      {% for post in series_posts %} {% include article-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="series-empty">
+      The series is just getting started. In the meantime, explore some recent
+      writing.
+    </p>
+    <div class="article-grid">
+      {% for post in site.posts limit: 2 %} {% include article-card.html
+      post=post %} {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+
+  <footer class="series-footer">
+    <p>
+      Penguin Coders covers more than data systems. Explore the rest of the
+      engineering journal.
+    </p>
+    <a class="button button--primary" href="{{ '/blog/' | relative_url }}"
+      >All articles <span aria-hidden="true">→</span></a
+    >
+  </footer>
+</div>

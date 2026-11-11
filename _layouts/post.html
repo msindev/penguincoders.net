@@ -10,6 +10,11 @@ layout: base
     <a class="back-link" href="{{ '/blog/' | relative_url }}"><span aria-hidden="true">←</span> All articles</a>
     <div class="article-header__meta">
       {% if page.topic %}<a class="article-category" href="{{ article_topic_url | relative_url }}">{{ page.topic }}</a>{% endif %}
+      {% if page.series == "The Data Systems Journal" %}
+      <a class="article-series-link" href="{{ '/series/data-systems-journal/' | relative_url }}">
+        {% if page.series_order %}Part {{ page.series_order }} · {% endif %}The Data Systems Journal
+      </a>
+      {% endif %}
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
       <span aria-hidden="true">·</span>
       {% include reading-time.html content=page.content %}
@@ -74,6 +79,7 @@ layout: base
         </a>
         {% endif %}
       </nav>
+      {% include giscus_comments.html %}
     </div>
   </div>
 

@@ -5,6 +5,11 @@
     <div class="article-byline">
       <span>{{ article.topic }}</span>
       <span aria-hidden="true">·</span>
+      {% if article.series == "The Data Systems Journal" %}
+      <a class="article-series-label" href="{{ '/series/data-systems-journal/' | relative_url }}">Data Systems Journal</a>
+      <span class="series-status">Published</span>
+      <span aria-hidden="true">·</span>
+      {% endif %}
       <time datetime="{{ article.date | date_to_xmlschema }}">{{ article.date | date: "%b %-d, %Y" }}</time>
       <span aria-hidden="true">·</span>
       {% include reading-time.html content=article.content %}

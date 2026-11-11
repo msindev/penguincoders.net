@@ -5,3 +5,6 @@ _site
 vendor
 .DS_Store
 docker-compose.yml
+
+# Private planning notes and AI instructions
+.private/
