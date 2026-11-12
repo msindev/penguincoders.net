@@ -8,10 +8,30 @@
       <p>Building software. Exploring ideas. Sharing what I learn.</p>
     </div>
     <div class="footer-links">
-      <a href="https://github.com/msindev" rel="me">GitHub</a>
-      <a href="https://www.linkedin.com/in/msindev/" rel="me">LinkedIn</a>
-      <a href="mailto:mohit@penguincoders.net">Email</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
+      <a href="https://github.com/msindev" rel="me">
+        <svg class="svg-icon footer-social-icon" aria-hidden="true">
+          <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
+        </svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/msindev/" rel="me">
+        <svg class="svg-icon footer-social-icon" aria-hidden="true">
+          <use xlink:href="{{ '/assets/minima-social-icons.svg#linkedin' | relative_url }}"></use>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="mailto:mohit@penguincoders.net">
+        <svg class="svg-icon footer-social-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 5.5h18v13H3zM3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+        </svg>
+        Email
+      </a>
+      <a href="{{ '/feed.xml' | relative_url }}">
+        <svg class="svg-icon footer-social-icon" aria-hidden="true">
+          <use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
+        </svg>
+        RSS feed
+      </a>
     </div>
     <p class="footer-copyright">© {{ site.time | date: '%Y' }} Mohit Singh</p>
   </div>
