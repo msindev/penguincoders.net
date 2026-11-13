@@ -891,6 +891,9 @@ a {
   gap: 1.1rem;
 
   a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     color: var(--ink-soft);
     font-size: 0.76rem;
 
@@ -900,9 +903,9 @@ a {
   }
 
   .footer-social-icon {
-    width: 1em;
-    height: 1em;
-    margin-right: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
   }
 }
 
